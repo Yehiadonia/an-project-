@@ -1,0 +1,19 @@
+Report on Gene Sequence Alignment
+Objective: The task involves developing a dynamic programming algorithm to align two gene sequences. The alignment score is computed using a given scoring matrix, indicating the similarity between nucleotides.
+
+Approach:
+
+Dynamic Programming: We employ dynamic programming to efficiently compute the highest-scoring alignment. This method breaks down the problem into simpler, overlapping subproblems, storing the results to avoid redundant computations.
+Algorithm Design:
+Initialization: A 2D array dp of size (n+1) x (m+1) is initialized, where n and m are the lengths of the two gene sequences x and y. The first row and column of dp are initialized to account for gap penalties.
+Matrix Filling: We iterate through dp, filling each cell with the maximum score achievable at that point. This score is calculated based on three possibilities: match/mismatch (diagonal move), insertion (down move), and deletion (right move).
+Backtracking: To print the aligned sequences, we backtrack from dp[n][m] to dp[0][0], reconstructing the alignment path.
+Scoring Matrix Interpretation:
+
+The scoring matrix δ provides scores for aligning each pair of nucleotides, including gaps. The order in the matrix is A, G, T, C, and - (gap).
+Time Analysis:
+
+The time complexity of the algorithm is O(mn), where m and n are the lengths of the two sequences. This arises from the nested loops required to fill the dp matrix.
+Each cell of the matrix requires a constant amount of work (calculating max of three values), thus maintaining linear growth with respect to the size of the input sequences.
+Conclusion:
+This dynamic programming approach efficiently computes the highest-scoring alignment between two gene sequences. The algorithm is robust and adaptable to different scoring matrices, making it suitable for various bioinformatics applications where sequence alignment is crucial.
